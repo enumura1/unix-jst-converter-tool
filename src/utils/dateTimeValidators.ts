@@ -1,4 +1,3 @@
-// 日付入力を検証する関数
 type validateProps = {
     message: string,
     color: string
