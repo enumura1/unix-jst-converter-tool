@@ -19,10 +19,10 @@ export async function jstToUnixCommand() {
             `JST: ${jstTimeString} => UNIX timestamp: ${unixTime}`,
             copyAction
         );
-        // ユーザーがコピーボタンをクリックした場合
+        // If user clicks the copy button
         if (result === copyAction) {
             await vscode.env.clipboard.writeText(unixTime.toString());
-            // コピー成功のフィードバックを表示
+            // Show feedback for successful copy
             vscode.window.showInformationMessage('UNIX timestamp copied to clipboard!');
         }
     } catch (error) {
