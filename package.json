@@ -9,10 +9,6 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:extension.unixToJst",
-    "onCommand:extension.jstToUnix"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
