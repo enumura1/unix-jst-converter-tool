@@ -12,5 +12,3 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.registerCommand('extension.unixToJst', unixToJstCommand),
     );
 }
-
-export function deactivate() {}
