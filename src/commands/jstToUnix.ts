@@ -14,7 +14,17 @@ export async function jstToUnixCommand() {
     try {
         const unixTime = convertJstToUnix(jstTimeString);
         // show info message
-        vscode.window.showInformationMessage(`JST: ${jstTimeString} => UNIX timestamp: ${unixTime}`);
+        const copyAction = 'Copy to Clipboard';
+        const result = await vscode.window.showInformationMessage(
+            `JST: ${jstTimeString} => UNIX timestamp: ${unixTime}`,
+            copyAction
+        );
+        // ユーザーがコピーボタンをクリックした場合
+        if (result === copyAction) {
+            await vscode.env.clipboard.writeText(unixTime.toString());
+            // コピー成功のフィードバックを表示
+            vscode.window.showInformationMessage('UNIX timestamp copied to clipboard!');
+        }
     } catch (error) {
         vscode.window.showErrorMessage("Error converting time");
     }
