@@ -2,12 +2,18 @@
   "name": "unix-jst-converter",
   "displayName": "UNIX-JST Time Converter",
   "description": "Convert between UNIX timestamp and JST time",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "icon":"images/icon.png",
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.93.0"
   },
+  "publisher": "enumura",
   "categories": [
     "Other"
+  ],
+  "activationEvents": [
+    "onCommand:jst-unix-converter.convertJstToUnix",
+  "onCommand:jst-unix-converter.convertUnixToJst"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -30,7 +36,10 @@
     "test": "tsc && node ./out/test/extension.test.js"
   },
   "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enumura1/unix-jst-converter-tool"
+  },
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.5.4",
