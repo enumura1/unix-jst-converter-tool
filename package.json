@@ -26,9 +26,8 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -w -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "build": "npm run compile",
+    "test": "tsc && node ./out/test/extension.test.js"
   },
   "keywords": [],
   "author": "",
@@ -36,9 +35,6 @@
   "devDependencies": {
     "@types/node": "^22.5.4",
     "@types/vscode": "^1.93.0",
-    "@typescript-eslint/eslint-plugin": "^8.4.0",
-    "@typescript-eslint/parser": "^8.4.0",
-    "eslint": "^9.10.0",
     "typescript": "^5.5.4"
   }
 }

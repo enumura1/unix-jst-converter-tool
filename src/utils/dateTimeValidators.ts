@@ -6,7 +6,7 @@ type validateProps = {
 export function validateDateInput(value: string): validateProps | undefined {
   // 何も入力されていない
   if (value.length === 0) {
-      return { message: "Please enter a date in YYYY-MM-DD format", color: "green" };
+      return { message: "Please enter a date in YYYY-MM-DD format", color: "yellow" };
   }
   
   // 例: '2023-05-15' => ['2023', '05', '15']
@@ -17,7 +17,7 @@ export function validateDateInput(value: string): validateProps | undefined {
       return {
         // missingParts要素が1つの時：andで文字列結合はなくその1つの要素が入るだけ
         message: `Please enter ${missingParts.join(' and ')} (Format: YYYY-MM-DD)`,
-        color: "green"
+        color: "yellow"
       };
   }
   
@@ -25,7 +25,7 @@ export function validateDateInput(value: string): validateProps | undefined {
   if (value.length < 10) {
       return { 
         message: "Please complete the date entry (Format: YYYY-MM-DD)",
-        color: "green"
+        color: "red"
       };
   }
   
@@ -53,19 +53,19 @@ export function validateDateInput(value: string): validateProps | undefined {
 export function validateTimeInput(value: string): { message: string, color: string } | undefined {
   // 時間入力が空の場合
   if (value.length === 0) {
-      return { message: "Please enter a time in HH:mm:ss format", color: "green" };
+      return { message: "Please enter a time in HH:mm:ss format", color: "red" };
   }
   
   // 入力を':'で分割（例: '14:30:00' => ['14', '30', '00']）
   const parts = value.split(':');
   if (parts.length < 3) {
       const missingParts = ['hours', 'minutes', 'seconds'].slice(parts.length);
-      return { message: `Please enter ${missingParts.join(' and ')} (Format: HH:mm:ss)`, color: "green" };
+      return { message: `Please enter ${missingParts.join(' and ')} (Format: HH:mm:ss)`, color: "red" };
   }
   
   // 入力が8文字未満の場合（HH:mm:ssの形式で8文字必要）
   if (value.length < 8) {
-      return { message: "Please complete the time entry (Format: HH:mm:ss)", color: "green" };
+      return { message: "Please complete the time entry (Format: HH:mm:ss)", color: "red" };
   }
   
   // （時は00-23、分と秒は00-59の範囲であることをチェック）
